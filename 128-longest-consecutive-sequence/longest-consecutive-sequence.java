@@ -10,10 +10,10 @@ class Solution {
         //Iterate through each element in arr set
         for(int num : arr){
             if(!arr.contains(num-1)){
-                int count = 0;
+                int count = 1;
                 int current = num;
                 //Counting the sequence length
-                while(arr.contains(current)){
+                while(arr.contains(current+1)){
                     current++;
                     count++;
                 }//Update the longest sequence
