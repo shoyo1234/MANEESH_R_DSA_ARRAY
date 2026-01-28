@@ -9,8 +9,8 @@ class Solution {
         int longest_cons_arr = 0;
         //Iterate through each element in arr set
         for(int num : arr){
-            int count = 0;
             if(!arr.contains(num-1)){
+                int count = 0;
                 int current = num;
                 //Counting the sequence length
                 while(arr.contains(current)){
