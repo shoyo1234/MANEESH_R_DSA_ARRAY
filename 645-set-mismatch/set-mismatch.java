@@ -1,24 +1,31 @@
-import java.util.Arrays;
-
 class Solution {
     public int[] findErrorNums(int[] nums) {
-        Arrays.sort(nums);
 
         int duplicate = -1;
-        int missing = 1;
+        int missing = -1;
 
-        for (int i = 1; i < nums.length; i++) {
-            if (nums[i] == nums[i - 1]) {
-                duplicate = nums[i];
-            }
-            if (nums[i] > nums[i - 1] + 1) {
-                missing = nums[i - 1] + 1;
+        // Mark numbers we have seen
+        for (int i = 0; i < nums.length; i++) {
+
+            int number = Math.abs(nums[i]);   // current number
+            int pos = number - 1;             // index it should map to
+
+            // If already negative, this number is repeated
+            if (nums[pos] < 0) {
+                duplicate = number;
+            } 
+            // Otherwise, mark it as seen
+            else {
+                nums[pos] = -nums[pos];
             }
         }
 
-        // If the missing number is n
-        if (nums[nums.length - 1] != nums.length) {
-            missing = nums.length;
+        // Find the number that was never marked
+        for (int i = 0; i < nums.length; i++) {
+            if (nums[i] > 0) {
+                missing = i + 1;
+                break;
+            }
         }
 
         return new int[]{duplicate, missing};
