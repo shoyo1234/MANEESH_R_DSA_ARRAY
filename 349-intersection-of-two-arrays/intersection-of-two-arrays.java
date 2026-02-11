@@ -8,10 +8,8 @@ class Solution {
         // To store intersection array
         List<Integer> result = new ArrayList<>();
         for(int nums : nums2){
-            if(set.contains(nums)){
+            if(set.remove(nums)){
                 result.add(nums);
-                // Removes duplicates 
-                set.remove(nums);
             }
         }
         int[] result_array = new int[result.size()];
