@@ -2,6 +2,7 @@ class Solution {
     public int[] nextGreaterElement(int[] nums1, int[] nums2) {
         // Map stores the values and its next greatest number 
         Map<Integer, Integer> map = new HashMap<>();
+        
         //Stores the next immediate greater element
         Stack<Integer> stack = new Stack<>();
         /*Iterating from right because the problem asks for the next 
