@@ -7,8 +7,9 @@ class Solution {
 
         for(int i = length-1; i>=0; i--){
             // remove lesser or equal days
+            int currentTemp = temperatures[i];
             while(!stack.isEmpty() && 
-            temperatures[i] >= temperatures[stack.peek()]){
+            currentTemp >= temperatures[stack.peek()]){
                 stack.pop();
             }
             if(!stack.isEmpty()){
