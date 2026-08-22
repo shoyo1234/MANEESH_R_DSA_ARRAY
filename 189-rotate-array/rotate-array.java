@@ -1,5 +1,9 @@
 class Solution {
     public void rotate(int[] nums, int k) {
+        if (nums == null || nums.length == 0) {
+            return;
+        }
+
         int n = nums.length;
         k = k%n;
         // First reverse the entire array
